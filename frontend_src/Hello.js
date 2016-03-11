@@ -1,5 +1,5 @@
 import React , { Component } from 'react';
-import router from './lib/react-routing'
+import router from './lib/router'
 
 export default class HelloWorld extends Component {
 
@@ -7,7 +7,7 @@ export default class HelloWorld extends Component {
         return (
             <div>
                 New text here !!!!
-                <router />
+                <router/>
             </div>
         );
     }
