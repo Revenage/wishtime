@@ -1,4 +1,5 @@
 import React , { Component } from 'react';
+import router from './lib/react-routing'
 
 export default class HelloWorld extends Component {
 
@@ -6,6 +7,7 @@ export default class HelloWorld extends Component {
         return (
             <div>
                 New text here !!!!
+                <router />
             </div>
         );
     }
