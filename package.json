@@ -2,7 +2,7 @@
   "name": "wishtime",
   "version": "0.0.0",
   "scripts": {
-    "express": "nodemon ./bin/www",
+    "express": "node ./bin/www",
     "webpack": "webpack --watch",
     "start": "nodemon ./bin/www && webpack --watch"
   },

@@ -5,7 +5,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 var entry = [
-    './frontend_src/index'
+    './src/index'
 ];
 
 module.exports = {
@@ -32,7 +32,7 @@ module.exports = {
         loaders: [{
             test: /\.js$/,
             loaders: ['react-hot', 'babel?presets[]=es2015&presets[]=react'],
-            include: path.join(__dirname, 'frontend_src'),
+            include: path.join(__dirname, 'src'),
         },
             {
             test: /\.(png|jpg|svg|ttf|eot|woff|woff2|html|json)/,
