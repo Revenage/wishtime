@@ -1,0 +1,33 @@
+@import "mixins.sass"
+
+.footer
+  background-color: #efeae1
+  height: 70px
+  padding: 10px
+  position: relative
+  width: 100%
+  left: 0
+  bottom: 0
+
+  .wrapper
+    @include wrapper
+    height: 35px
+    ul
+      text-align: center
+      list-style-type: none
+      padding: 0
+      margin: 0
+      li
+        display: inline-block
+        padding: 0 10px
+        a
+          @include links
+          color: #66595c
+
+  span
+    width: 100%
+    text-align: center
+    display: block
+    position: absolute
+    bottom: 5px
+    color: #66595c

@@ -4,7 +4,7 @@ var log = require('../libs/logger')(module);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'WishTime', subtitle: 'Express' });
+  res.render('index', { title: 'WishTime'/*, subtitle: 'Express'*/ });
 });
 
 module.exports = router;

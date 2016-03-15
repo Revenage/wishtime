@@ -29,14 +29,16 @@ module.exports = {
         extensions: ['', '.js']
     },
     module: {
-        loaders: [{
-            test: /\.js$/,
-            loaders: ['react-hot', 'babel?presets[]=es2015&presets[]=react'],
-            include: path.join(__dirname, 'src'),
-        },
+        loaders: [
             {
-            test: /\.(png|jpg|svg|ttf|eot|woff|woff2|html|json)/,
-            loader: 'file?name=[path][name].[ext]?[hash]'
-        }]
+                test: /\.js$/,
+                loaders: ['react-hot', 'babel?presets[]=es2015&presets[]=react'],
+                include: path.join(__dirname, 'src'),
+            },
+            {
+                test: /\.(png|jpg|svg|ttf|eot|woff|woff2|html|json)/,
+                loader: 'file?name=[path][name].[ext]?[hash]'
+            }
+        ]
     },
 };

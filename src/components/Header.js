@@ -13,12 +13,19 @@ export default class Header extends Component {
                     <nav>
                         <li><Link to="/">WishTime</Link></li>
                         <li><Link to="/calendare">Calendare</Link></li>
-                        <li><Link to="/diskcuss">Discuss</Link></li>
+                        <li><Link to="/discuss">Discuss</Link></li>
                         <li><Link to="/author">Author</Link></li>
                     </nav>
                     <div className="right-block">
-                        <Link to="/account">Account name</Link>
-                        <Link to="/exit">Exit ico</Link>
+                        <Link to="/account">
+                            <img src="https://github.com/Revenage.png" className="gravatar"/>
+                        </Link>
+                        <Link to="/account">
+                            AccountName
+                        </Link>
+                        <Link to="/exit">
+                            <i className="fa fa-sign-out"></i>
+                        </Link>
                     </div>
                 </div>
             </div>
