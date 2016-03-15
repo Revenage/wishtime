@@ -9,6 +9,7 @@ import AboutPage from './components/AboutPage';
 import Layout from './components/Layout';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import CalendarPage from './components/CalendarPage';
 
 const container = document.getElementById('App');
 
@@ -29,6 +30,7 @@ ReactDOM.render((
     <Route path="/" component={App}>
         <Route path="/about" component={AboutPage}/>
         <Route path="/home" component={HomePage}/>
+        <Route path="/calendar" component={CalendarPage}/>
     </Route>
     </Router>
 ), container);

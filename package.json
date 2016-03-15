@@ -2,9 +2,9 @@
   "name": "wishtime",
   "version": "0.0.0",
   "scripts": {
-    "express": "node ./bin/www",
+    "express": "nodemon ./bin/www",
     "webpack": "webpack --watch",
-    "start": "nodemon ./bin/www && webpack --watch"
+    "start": "nodemon ./bin/www && npm run webpack --watch"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
