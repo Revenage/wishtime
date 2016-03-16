@@ -5,6 +5,13 @@ import React , { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 class calendarElement extends Component {
+
+    render () {
+
+    }
+};
+
+class Calendar extends calendarElement {
     render () {
 
         const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -44,17 +51,11 @@ class calendarElement extends Component {
             /* else */ // else not needed when statement is "return"
             return false; // is not leap year
         }
-    }
-};
-
-class Calendar extends calendarElement {
-    render () {
 
         function setCal() {
             let now = new Date();
             let year = now.getYear();
-            if (year < 1000)
-                year+=1900;
+            if (year < 1000) year+=1900;
             let month = now.getMonth();
             let monthName = getMonthName(month);
             let date = now.getDate();
@@ -85,7 +86,6 @@ class Calendar extends calendarElement {
 
 // create basic table structure
             let text = "";// initialize accumulative variable to empty string
-            text += '<CENTER>';
             text += '<TABLE BORDER=' + border + ' CELLSPACING=' + cellspacing + '>'; // table settings
             text += '<TH COLSPAN=7 HEIGHT=' + headerHeight + '>' ;// create table header cell
             text += '<FONT COLOR="' + headerColor + '" SIZE=' + headerSize + '>'; // set font for table header

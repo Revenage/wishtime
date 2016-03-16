@@ -8,7 +8,7 @@ export default class AboutPage extends Component {
     render() {
         return (
             <div>
-                AboutPage
+                AboutPage all right!
             </div>
         );
     }

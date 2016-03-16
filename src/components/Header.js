@@ -15,13 +15,13 @@ export default class Header extends Component {
                             <i className="fa fa-pie-chart fa-lg"></i> WishTime
                         </Link></li>
                         <li>
-                            <Link to="/calendare"><i className="fa fa-calendar"></i> Calendare</Link>
+                            <Link to="/calendar"><i className="fa fa-calendar"></i> Calendare</Link>
                         </li>
                         <li>
                             <Link to="/discuss"><i className="fa fa-weixin"></i> Discuss</Link>
                         </li>
                         <li>
-                            <Link to="/author"><i className="fa fa-user-secret"></i> Author</Link>
+                            <Link to="/about"><i className="fa fa-user-secret"></i> About</Link>
                         </li>
                     </nav>
                     <div className="right-block">
