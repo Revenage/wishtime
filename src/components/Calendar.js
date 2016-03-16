@@ -81,17 +81,17 @@ class Calendar extends Component {
 
 // create basic table structure
             let text = "";// initialize accumulative variable to empty string
-            /*text += '<CENTER>';*/
+            text += '<CENTER>';
             text += '<TABLE BORDER=' + border + ' CELLSPACING=' + cellspacing + '>'; // table settings
             text += '<TH COLSPAN=7 HEIGHT=' + headerHeight + '>' ;// create table header cell
-           /* text += '<FONT COLOR="' + headerColor + '" SIZE=' + headerSize + '>';*/ // set font for table header
+            text += '<FONT COLOR="' + headerColor + '" SIZE=' + headerSize + '>'; // set font for table header
             text += monthName + ' ' + year;
-           /* text += '</FONT>';*/ // close table header's font settings
+            text += '</FONT>'; // close table header's font settings
             text += '</TH>'; // close header cell
 
 // variables to hold constant settings
             let openCol = '<TD WIDTH=' + colWidth + ' HEIGHT=' + dayCellHeight + '>';
-            /*openCol += '<FONT COLOR="' + dayColor + '">';*/
+            openCol += '<FONT COLOR="' + dayColor + '">';
             let closeCol = '</FONT></TD>';
 // create first row of table to set column width and specify week day
             text += '<TR ALIGN="center" VALIGN="center">';
@@ -115,12 +115,12 @@ class Calendar extends Component {
                     } else {
                         if (digit == date) { // current cell represent today's date
                             text += '<TD HEIGHT=' + cellHeight + '>';
-                           /* text += '<FONT COLOR="' + todayColor + '">';
+                            text += '<FONT COLOR="' + todayColor + '">';
                             text += digit;
                             text += '</FONT><BR>';
                             text += '<FONT COLOR="' + timeColor + '" SIZE=2>';
                             text += '<CENTER>' + getTime() + '</CENTER>';
-                            text += '</FONT>';*/
+                            text += '</FONT>';
                             text += '</TD>';
                         } else
                             text += '<TD HEIGHT=' + cellHeight + '>' + digit + '</TD>';
@@ -132,14 +132,12 @@ class Calendar extends Component {
 
 // close all basic table tags
             text += '</TABLE>';
-            return text;
+            return {__html: text};
         }
-
-        let calendar = ReactDOM.render(setCal());
 
         return (
             <div className="calendar">
-                {calendar}
+               <div dangerouslySetInnerHTML={setCal()}/>
             </div>
         )
     }
