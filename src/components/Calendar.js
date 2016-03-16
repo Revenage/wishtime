@@ -4,9 +4,8 @@
 import React , { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class Calendar extends Component {
+class calendarElement extends Component {
     render () {
-
 
         const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
         const weekDayName = ["Sun","Mon","Tues","Wed","Thu","Fri","Sat"];
@@ -45,6 +44,11 @@ class Calendar extends Component {
             /* else */ // else not needed when statement is "return"
             return false; // is not leap year
         }
+    }
+};
+
+class Calendar extends calendarElement {
+    render () {
 
         function setCal() {
             let now = new Date();
