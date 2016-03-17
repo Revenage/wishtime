@@ -11,11 +11,22 @@ class calendarElement extends Component {
     }
 };
 
-class daysNames extends Component {
+class dayName extends Component {
+    render () {
+        console.log(this.props);
+        return (
+            <div>
+                test
+            </div>
+        )
+    }
+};
+
+class daysNameLine extends Component {
     render () {
         let tr = [];
         for (let dayNum = 0; dayNum < 7; ++dayNum) {
-            tr.push(<dayName>  </dayName>)
+            tr.push(<dayName day={ dayNum } />)
         }
         return (
             <div>
@@ -155,10 +166,10 @@ class Calendar extends calendarElement {
 
         return (
             <div className="calendar">
-                <table>
-                    <daysNames/>
-                    <div dangerouslySetInnerHTML={setCal()}/>
-                </table>
+                <div className="calendar-table">
+                    <daysNameLine/>
+                    {/*<div dangerouslySetInnerHTML={setCal()}/>*/}
+                </div>
             </div>
         )
     }
