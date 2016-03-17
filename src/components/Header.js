@@ -11,17 +11,21 @@ export default class Header extends Component {
             <div className="header">
                 <div className="wrapper">
                     <nav>
-                        <li><Link to="/">
-                            <i className="fa fa-pie-chart fa-lg"></i> WishTime
-                        </Link></li>
                         <li>
-                            <Link to="/calendar"><i className="fa fa-calendar"></i> Calendare</Link>
+                            <Link to="/"><i className="fa fa-pie-chart fa-lg"></i> WishTime
+                        </Link>
                         </li>
                         <li>
-                            <Link to="/discuss"><i className="fa fa-weixin"></i> Discuss</Link>
+                            <Link to="/calendar"><i className="fa fa-calendar"></i> Calendar</Link>
                         </li>
                         <li>
-                            <Link to="/about"><i className="fa fa-user-secret"></i> About</Link>
+                            <Link to="/wishes"><i className="fa fa-user-secret"></i> WIshes</Link>
+                        </li>
+                        <li>
+                            <Link to="/skills"><i className="fa fa-user-secret"></i> Skills</Link>
+                        </li>
+                        <li>
+                            <Link to="/priorities"><i className="fa fa-weixin"></i> Priorities</Link>
                         </li>
                     </nav>
                     <div className="right-block">
