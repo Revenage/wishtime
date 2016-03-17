@@ -11,6 +11,20 @@ class calendarElement extends Component {
     }
 };
 
+class daysNames extends Component {
+    render () {
+        let tr = [];
+        for (let dayNum = 0; dayNum < 7; ++dayNum) {
+            tr.push(<dayName>  </dayName>)
+        }
+        return (
+            <div>
+                {tr}
+            </div>
+        )
+    }
+};
+
 class Calendar extends calendarElement {
     render () {
 
@@ -70,6 +84,8 @@ class Calendar extends calendarElement {
             return drawCal(firstDay + 1, days, date, monthName, year)
         }
 
+
+
         function drawCal(firstDay, lastDate, date, monthName, year) {
 // constant table settings
             let headerHeight = 50 ;// height of the table's header cell
@@ -86,13 +102,12 @@ class Calendar extends calendarElement {
 
 // create basic table structure
             let text = "";// initialize accumulative variable to empty string
-            text += '<TABLE BORDER=' + border + ' CELLSPACING=' + cellspacing + '>'; // table settings
-            text += '<TH COLSPAN=7 HEIGHT=' + headerHeight + '>' ;// create table header cell
+            //text += '<TABLE BORDER=' + border + ' CELLSPACING=' + cellspacing + '>'; // table settings
+            /*text += '<TH COLSPAN=7 HEIGHT=' + headerHeight + '>' ;// create table header cell
             text += '<FONT COLOR="' + headerColor + '" SIZE=' + headerSize + '>'; // set font for table header
             text += monthName + ' ' + year;
             text += '</FONT>'; // close table header's font settings
-            text += '</TH>'; // close header cell
-
+            text += '</TH>'; // close header cell*/
 // variables to hold constant settings
             let openCol = '<TD WIDTH=' + colWidth + ' HEIGHT=' + dayCellHeight + '>';
             openCol += '<FONT COLOR="' + dayColor + '">';
@@ -135,13 +150,15 @@ class Calendar extends calendarElement {
             }
 
 // close all basic table tags
-            text += '</TABLE>';
             return {__html: text};
         }
 
         return (
             <div className="calendar">
-               <div dangerouslySetInnerHTML={setCal()}/>
+                <table>
+                    <daysNames/>
+                    <div dangerouslySetInnerHTML={setCal()}/>
+                </table>
             </div>
         )
     }

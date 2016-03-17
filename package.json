@@ -4,7 +4,7 @@
   "scripts": {
     "express": "nodemon ./bin/www",
     "webpack": "webpack --watch",
-    "start": "nodemon ./bin/www && npm run webpack --watch"
+    "start": "nodemon ./bin/www |  webpack --watch"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
