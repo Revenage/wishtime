@@ -7,9 +7,9 @@ import { browserHistory, Router, Route, Link} from 'react-router'
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import Layout from './components/Layout';
+import CalendarPage from './components/Calendar/CalendarPage';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import CalendarPage from './components/CalendarPage';
 
 const container = document.getElementById('App');
 
