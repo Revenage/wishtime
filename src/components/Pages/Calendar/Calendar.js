@@ -4,8 +4,6 @@
 import React , { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-
-
 class MonthName extends Component {
     render () {
         return (
@@ -43,7 +41,48 @@ class WeekdayNames extends Component {
     }
 };
 
-class Month extends Component {
+class Day extends Component {
+    render () {
+        var name = 'day '+ this.props.type;
+        return (
+            <div className={name}>
+                {this.props.children}
+            </div>
+        )
+    }
+};
+
+class EmptyDay extends Component {
+    render () {
+        return (
+            <Day type="empty">
+                {this.props.daynum}
+            </Day>
+        )
+    }
+};
+
+class CurrentDay extends Component {
+    render () {
+        return (
+            <Day type="current">
+                {this.props.daynum}
+            </Day>
+        )
+    }
+};
+
+class RegularDay extends Component {
+    render () {
+        return (
+            <Day type="regular">
+                {this.props.daynum}
+            </Day>
+        )
+    }
+};
+
+class MonthCalendar extends Component {
     render () {
         let numOfMonth = this.props.monthNum;
 
@@ -78,19 +117,12 @@ class Month extends Component {
             return monthNames[month]
         }
 
-        /*function leapYear(year) {
-            if (year % 4 == 0) // basic rule
-                return true; // is leap year
-            /!* else *!/ // else not needed when statement is "return"
-            return false; // is not leap year
-        }*/
-
         function setCal() {
             let now = new Date();
             let year = now.getYear();
             if (year < 1000) year+=1900;
             let month = numOfMonth;
-            let CurrentMonth = (numOfMonth === now.getMonth());
+            let isCurrentMonth = (numOfMonth === now.getMonth());
             let monthName = getMonthName(month);
             let currentDay = now.getDate();
             now = null;
@@ -101,82 +133,48 @@ class Month extends Component {
 
             let days = getDaysInMonth(month, year);
 
-            return drawCal(firstDay + 1, days, {isCurrentMonth: CurrentMonth, currentDay: currentDay}, monthName, year)
+            return drawCal(firstDay + 1, days, {isCurrentMonth: isCurrentMonth, currentDay: currentDay}, monthName, year)
         }
 
 
 
         function drawCal(firstDay, lastDate, date, monthName, year) {
-// constant table settings
-            let headerHeight = 50 ;// height of the table's header cell
-            let border = 2; // 3D height of table's border
-            let cellspacing = 4; // width of table's border
-            let headerColor = "midnightblue"; // color of table's header
-            let headerSize = "+3";// size of tables header font
-            let colWidth = 60; // width of columns in table
-            let dayCellHeight = 25; // height of cells containing days of the week
-            let dayColor = "darkblue";// color of font representing week days
-            let cellHeight = 40; // height of cells representing dates in the calendar
-            let todayColor = "red"; // color specifying today's date in the calendar
-            let timeColor = "purple"; // color of font representing current time
-
-// create basic table structure
-            let text = "";// initialize accumulative variable to empty string
-            /*text += '<div class="month-name">';
-            text += '<span>'; // set font for table header
-            text += monthName + ' ' + year;
-            text += '</span>'; // close table header's font settings
-            text += '</div>';*/
-// variables to hold constant settings
-            /*let openCol = '<div class="weekday-name" WIDTH=' + colWidth + ' HEIGHT=' + dayCellHeight + '>';
-            openCol += '<span COLOR="' + dayColor + '">';
-            let closeCol = '</span></div>';
-// create first row of table to set column width and specify week day
-            text += '<div class="weekday-names">';
-            for (let dayNum = 0; dayNum < 7; ++dayNum) {
-                text += openCol + weekDayName[dayNum] + closeCol
-            }
-            text += '</div>';*/
-
-// declaration and initialization of two variables to help with tables
             let digit = 1;
             let curCell = 1;
+            let text = '';
+            let month = [];
 
             for (let row = 1; row <= Math.ceil((lastDate + firstDay - 1) / 7); ++row) {
-                text += '<div class="week">';
+
+                let week = [];
                 for (let col = 1; col <= 7; ++col) {
                     if (digit > lastDate)
                         break;
                     if (curCell < firstDay) {
-                        text += '<div class="empty-day"></div>';
+                        week.push(<EmptyDay />);
                         curCell++
                     } else {
                         if (digit === date.currentDay && date.isCurrentMonth) { // current cell represent today's date
-                            text += '<div HEIGHT=' + cellHeight + '>';
-                            text += '<span COLOR="' + todayColor + '">';
-                            text += '<b>'+ digit +'</b>';
-                           /* text += '</span><BR>';
-                            text += '<span COLOR="' + timeColor + '" SIZE=2>';
-                            text += '<span>' + getTime() + '</span>';*/
-                            text += '</span>';
-                            text += '</div>';
+                            week.push(<CurrentDay daynum={digit}/>);
                         } else
-                            text += '<div class="day" HEIGHT=' + cellHeight + '>' + digit + '</div>';
+                            week.push(<RegularDay daynum={digit}/>);
                         digit++
                     }
                 }
-                text += '</div>';
+                month.push(week);
             }
 
 // close all basic table tags
-            return {__html: text};
+            /*return {__html: text};*/
+            return month
         }
 
         return (
             <div className="month">
                 <MonthName monthName={getMonthName(numOfMonth)}/>
                 <WeekdayNames daynames={weekDayName}/>
-                <div dangerouslySetInnerHTML={setCal()}/>
+                {setCal()}
+                {/*<div dangerouslySetInnerHTML={setCal()}/>*/}
             </div>
         )
     }
@@ -187,7 +185,7 @@ class MonthsHolder extends Component {
         var numberYears = 12;
         let year = [];
         for (let i = 0; i < numberYears; i++) {
-            year.push(<Month key={i} monthNum={i}/>);
+            year.push(<MonthCalendar key={i} monthNum={i}/>);
         }
         return (
             <div className="year">
