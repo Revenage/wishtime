@@ -17,7 +17,7 @@ module.exports = {
         publicPath: '/js/'
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
+        /*new webpack.HotModuleReplacementPlugin(),*/
         new webpack.NoErrorsPlugin(),
         new webpack.ProvidePlugin({
             React: 'react',

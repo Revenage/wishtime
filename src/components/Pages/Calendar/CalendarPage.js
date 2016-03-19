@@ -2,7 +2,7 @@
  * Created by Revenage on 3/15/2016.
  */
 import React , { Component } from 'react';
-import Calendar from './Calendar';
+import Calendar from './Month/Calendar';
 
 var WISHES = [
     {

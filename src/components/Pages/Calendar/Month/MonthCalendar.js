@@ -1,88 +1,14 @@
 /**
- * Created by Revenage on 3/15/2016.
+ * Created by Revenage on 3/19/2016.
  */
 import React , { Component } from 'react';
-import ReactDOM from 'react-dom';
+import EmptyDay from './../Days/EmptyDay';
+import CurrentDay from './../Days/CurrentDay';
+import RegularDay from './../Days/RegularDay';
+import MonthName from './../MonthsAndDaysNames/MonthName';
+import WeekdayNames from './../MonthsAndDaysNames/WeekdayNames'
 
-class MonthName extends Component {
-    render () {
-        return (
-            <div className="month-name">
-               <span> {this.props.monthName} </span>
-            </div>
-        )
-    }
-};
-
-class WeekdayName extends Component {
-    render () {
-        return (
-            <div className="weekday-name">
-                {this.props.name}
-            </div>
-        )
-    }
-};
-
-class WeekdayNames extends Component {
-    render () {
-        let week = [];
-        let names = this.props.daynames;
-
-        for (let dayNum = 0; dayNum < 7; dayNum++) {
-            week.push(<WeekdayName key={dayNum} name={ names[dayNum] }/>);
-        }
-
-        return (
-            <div className="weekday-names">
-                {week}
-            </div>
-        )
-    }
-};
-
-class Day extends Component {
-    render () {
-        var name = 'day '+ this.props.type;
-        return (
-            <div className={name}>
-                {this.props.children}
-            </div>
-        )
-    }
-};
-
-class EmptyDay extends Component {
-    render () {
-        return (
-            <Day type="empty">
-                {this.props.daynum}
-            </Day>
-        )
-    }
-};
-
-class CurrentDay extends Component {
-    render () {
-        return (
-            <Day type="current">
-                {this.props.daynum}
-            </Day>
-        )
-    }
-};
-
-class RegularDay extends Component {
-    render () {
-        return (
-            <Day type="regular">
-                {this.props.daynum}
-            </Day>
-        )
-    }
-};
-
-class MonthCalendar extends Component {
+export default class MonthCalendar extends Component {
     render () {
         let numOfMonth = this.props.monthNum;
 
@@ -179,57 +105,3 @@ class MonthCalendar extends Component {
         )
     }
 };
-
-class MonthsHolder extends Component {
-    render () {
-        var numberYears = 12;
-        let year = [];
-        for (let i = 0; i < numberYears; i++) {
-            year.push(<MonthCalendar key={i} monthNum={i}/>);
-        }
-        return (
-            <div className="year">
-                {year}
-            </div>
-        )
-    }
-};
-
-class Wish extends Component {
-    render () {
-        var name = this.props.name || 'Error';
-
-        return (
-            <div className="wish-name">{name}</div>
-        )
-    }
-};
-
-class List extends Component {
-    render () {
-        var rows = [];
-        this.props.wishesData.forEach(function(wish, i) {
-            rows.push(<Wish name={wish.name} key={i}/>);
-        });
-
-        return (
-            <div className="wish-list">
-                {rows}
-            </div>
-        )
-    }
-};
-
-class Calendar extends Component {
-    render () {
-        return (
-            <div className="calendar page">
-                <List wishesData={ this.props.wishes }/>
-                <MonthsHolder/>
-            </div>
-        )
-    }
-};
-
-export default Calendar;
-
