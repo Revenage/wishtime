@@ -3,33 +3,19 @@
  */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { browserHistory, Router, Route, Link} from 'react-router'
-import HomePage from './components/HomePage';
-import AboutPage from './components/AboutPage';
-import Layout from './components/Layout';
-import CalendarPage from './components/Calendar/CalendarPage';
-import Footer from './components/Footer';
-import Header from './components/Header';
+import { browserHistory, Router, IndexRoute, Route, Link} from 'react-router'
+import HomePage from './components/Pages/HomePage';
+import AboutPage from './components/Pages/AboutPage';
+import Page from './components/Page';
+import CalendarPage from './components/Pages/Calendar/CalendarPage';
 
 const container = document.getElementById('App');
 
-class App extends Component {
-    render() {
-        return (
-            <div>
-                <Header/>
-                {this.props.children}
-                <Footer/>
-            </div>
-        )
-    }
-};
-
 ReactDOM.render((
     <Router history={browserHistory}>
-    <Route path="/" component={App}>
+    <Route path="/" component={Page}>
+        <IndexRoute component={HomePage} />
         <Route path="/about" component={AboutPage}/>
-        <Route path="/home" component={HomePage}/>
         <Route path="/calendar" component={CalendarPage}/>
     </Route>
     </Router>

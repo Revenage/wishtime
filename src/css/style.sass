@@ -9,10 +9,17 @@ body
   padding: 0
   .page
     min-height: 900px
+    padding-left: 15px
+    padding-right: 15px
+
+$broun: #584B4F
+$white: #fafafa
+$gray: #fafafa
+
 
 body, *
   box-sizing: border-box
-
-@import "footer"
-@import "header"
-@import "Calendar/calendar"
+@import "./mixins"
+@import "../components/Footer/footer"
+@import "../components/Header/header"
+@import "../components/Pages/Calendar/calendar"
