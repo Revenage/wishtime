@@ -16,16 +16,16 @@ export default class Header extends Component {
                         </Link>
                         </li>
                         <li>
-                            <Link to="/calendar"><i className="fa fa-calendar"></i> Calendar</Link>
+                            <Link to="/calendar" activeClassName="active"><i className="fa fa-calendar"></i> Calendar</Link>
                         </li>
                         <li>
-                            <Link to="/wishes"><i className="fa fa-user-secret"></i> WIshes</Link>
+                            <Link to="/wishes" activeClassName="active"><i className="fa fa-user-secret"></i> WIshes</Link>
                         </li>
                         <li>
-                            <Link to="/skills"><i className="fa fa-user-secret"></i> Skills</Link>
+                            <Link to="/skills" activeClassName="active"><i className="fa fa-user-secret"></i> Skills</Link>
                         </li>
                         <li>
-                            <Link to="/priorities"><i className="fa fa-weixin"></i> Priorities</Link>
+                            <Link to="/priorities" activeClassName="active"><i className="fa fa-weixin"></i> Priorities</Link>
                         </li>
                     </nav>
                     <div className="right-block">

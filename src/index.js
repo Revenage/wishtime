@@ -5,7 +5,9 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { browserHistory, Router, IndexRoute, Route, Link} from 'react-router'
 import HomePage from './components/Pages/HomePage';
-import AboutPage from './components/Pages/AboutPage';
+import WishesPage from './components/Pages/WishesPage';
+import SkillsPage from './components/Pages/SkillsPage';
+import PrioritiesPage from './components/Pages/PrioritiesPage';
 import Page from './components/Page';
 import CalendarPage from './components/Pages/Calendar/CalendarPage';
 
@@ -15,8 +17,10 @@ ReactDOM.render((
     <Router history={browserHistory}>
     <Route path="/" component={Page}>
         <IndexRoute component={HomePage} />
-        <Route path="/about" component={AboutPage}/>
         <Route path="/calendar" component={CalendarPage}/>
+        <Route path="/wishes" component={WishesPage}/>
+        <Route path="/skills" component={SkillsPage}/>
+        <Route path="/priorities" component={PrioritiesPage}/>
     </Route>
     </Router>
 ), container);

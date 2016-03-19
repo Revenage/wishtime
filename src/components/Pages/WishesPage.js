@@ -3,12 +3,12 @@
  */
 import React , { Component } from 'react';
 
-export default class AboutPage extends Component {
+export default class WishesPage extends Component {
 
     render() {
         return (
             <div>
-                AboutPage all right!
+               <h1>WishesPage all right!</h1>
             </div>
         );
     }
