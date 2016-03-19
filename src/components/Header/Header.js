@@ -19,7 +19,7 @@ export default class Header extends Component {
                             <Link to="/calendar" activeClassName="active"><i className="fa fa-calendar"></i> Calendar</Link>
                         </li>
                         <li>
-                            <Link to="/wishes" activeClassName="active"><i className="fa fa-user-secret"></i> WIshes</Link>
+                            <Link to="/wishes" activeClassName="active"><i className="fa fa-user-secret"></i> Wishes</Link>
                         </li>
                         <li>
                             <Link to="/skills" activeClassName="active"><i className="fa fa-user-secret"></i> Skills</Link>

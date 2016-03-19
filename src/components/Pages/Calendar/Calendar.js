@@ -4,6 +4,45 @@
 import React , { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+
+
+class MonthName extends Component {
+    render () {
+        return (
+            <div className="month-name">
+               <span> {this.props.monthName} </span>
+            </div>
+        )
+    }
+};
+
+class WeekdayName extends Component {
+    render () {
+        return (
+            <div className="weekday-name">
+                {this.props.name}
+            </div>
+        )
+    }
+};
+
+class WeekdayNames extends Component {
+    render () {
+        let week = [];
+        let names = this.props.daynames;
+
+        for (let dayNum = 0; dayNum < 7; dayNum++) {
+            week.push(<WeekdayName key={dayNum} name={ names[dayNum] }/>);
+        }
+
+        return (
+            <div className="weekday-names">
+                {week}
+            </div>
+        )
+    }
+};
+
 class Month extends Component {
     render () {
         let numOfMonth = this.props.monthNum;
@@ -39,20 +78,21 @@ class Month extends Component {
             return monthNames[month]
         }
 
-        function leapYear(year) {
+        /*function leapYear(year) {
             if (year % 4 == 0) // basic rule
                 return true; // is leap year
             /!* else *!/ // else not needed when statement is "return"
             return false; // is not leap year
-        }
+        }*/
 
         function setCal() {
             let now = new Date();
             let year = now.getYear();
             if (year < 1000) year+=1900;
             let month = numOfMonth;
+            let CurrentMonth = (numOfMonth === now.getMonth());
             let monthName = getMonthName(month);
-           /* let date = now.getDate();*/
+            let currentDay = now.getDate();
             now = null;
 
             let firstDayInstance = new Date(year, month, 1);
@@ -61,12 +101,12 @@ class Month extends Component {
 
             let days = getDaysInMonth(month, year);
 
-            return drawCal(firstDay + 1, days, /*date,*/ monthName, year)
+            return drawCal(firstDay + 1, days, {isCurrentMonth: CurrentMonth, currentDay: currentDay}, monthName, year)
         }
 
 
 
-        function drawCal(firstDay, lastDate, /*date,*/ monthName, year) {
+        function drawCal(firstDay, lastDate, date, monthName, year) {
 // constant table settings
             let headerHeight = 50 ;// height of the table's header cell
             let border = 2; // 3D height of table's border
@@ -82,13 +122,13 @@ class Month extends Component {
 
 // create basic table structure
             let text = "";// initialize accumulative variable to empty string
-            text += '<div class="month-name">';
-            text += '<span COLOR="' + headerColor + '" SIZE=' + headerSize + '>'; // set font for table header
+            /*text += '<div class="month-name">';
+            text += '<span>'; // set font for table header
             text += monthName + ' ' + year;
             text += '</span>'; // close table header's font settings
-            text += '</div>';
+            text += '</div>';*/
 // variables to hold constant settings
-            let openCol = '<div class="weekday-name" WIDTH=' + colWidth + ' HEIGHT=' + dayCellHeight + '>';
+            /*let openCol = '<div class="weekday-name" WIDTH=' + colWidth + ' HEIGHT=' + dayCellHeight + '>';
             openCol += '<span COLOR="' + dayColor + '">';
             let closeCol = '</span></div>';
 // create first row of table to set column width and specify week day
@@ -96,7 +136,7 @@ class Month extends Component {
             for (let dayNum = 0; dayNum < 7; ++dayNum) {
                 text += openCol + weekDayName[dayNum] + closeCol
             }
-            text += '</div>';
+            text += '</div>';*/
 
 // declaration and initialization of two variables to help with tables
             let digit = 1;
@@ -111,13 +151,13 @@ class Month extends Component {
                         text += '<div class="empty-day"></div>';
                         curCell++
                     } else {
-                        if (digit == 'date') { // current cell represent today's date
+                        if (digit === date.currentDay && date.isCurrentMonth) { // current cell represent today's date
                             text += '<div HEIGHT=' + cellHeight + '>';
                             text += '<span COLOR="' + todayColor + '">';
-                            text += digit;
-                            text += '</span><BR>';
+                            text += '<b>'+ digit +'</b>';
+                           /* text += '</span><BR>';
                             text += '<span COLOR="' + timeColor + '" SIZE=2>';
-                            text += '<span>' + getTime() + '</span>';
+                            text += '<span>' + getTime() + '</span>';*/
                             text += '</span>';
                             text += '</div>';
                         } else
@@ -133,7 +173,11 @@ class Month extends Component {
         }
 
         return (
-            <div className="month" dangerouslySetInnerHTML={setCal()}/>
+            <div className="month">
+                <MonthName monthName={getMonthName(numOfMonth)}/>
+                <WeekdayNames daynames={weekDayName}/>
+                <div dangerouslySetInnerHTML={setCal()}/>
+            </div>
         )
     }
 };
