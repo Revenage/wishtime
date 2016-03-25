@@ -10,7 +10,6 @@ import SkillsPage from './components/Pages/SkillsPage';
 import PrioritiesPage from './components/Pages/PrioritiesPage';
 import Page from './components/Page';
 import CalendarPage from './components/Pages/Calendar/CalendarPage';
-
 const container = document.getElementById('App');
 
 ReactDOM.render((
