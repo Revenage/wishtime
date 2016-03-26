@@ -7,6 +7,7 @@ import List from './../List/List';
 import MonthHolder from './MonthHolder'
 
 class Calendar extends Component {
+
     render () {
         return (
             <div className="calendar page">
@@ -18,4 +19,3 @@ class Calendar extends Component {
 };
 
 export default Calendar;
-

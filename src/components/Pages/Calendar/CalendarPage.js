@@ -4,43 +4,43 @@
 import React , { Component } from 'react';
 import Calendar from './Month/Calendar';
 
-var WISHES = [
-    {
+let WISHES = {
+    123: {
         name: 'iPhone 6S',
         category: 'me',
         price: '650',
-        date: {from: {year: 2015, month: 7, day: 6}, to: {year: 2016, month: 9, day: 26}},
+        date: {from: {year: 2015, month: 7, day: 6}, to: {year: 2016, month: 4, day: 28}},
         label: ''
     },
-    {
+    654: {
         name: 'MacBook',
         category: 'me',
         price: '800',
-        date: {from: {year: 2015, month: 7, day: 6}, to: {year: 2016, month: 9, day: 26}},
+        date: {from: {year: 2015, month: 7, day: 6}, to: {year: 2016, month: 1, day: 12}},
         label: ''
     },
-    {
+    345: {
         name: 'iMac',
         category: 'work',
         price: '700',
-        date: {from: {year: 2015, month: 7, day: 6}, to: {year: 2016, month: 9, day: 26}},
+        date: {from: {year: 2015, month: 7, day: 6}, to: {year: 2016, month: 11, day: 21}},
         label: ''
     },
-    {
+    735: {
         name: 'Thunderbolt DIsplay 27"',
         category: 'work',
         price: '500',
         date: {from: {year: 2015, month: 7, day: 6}, to: {year: 2016, month: 9, day: 26}},
         label: ''
     },
-    {
+    945: {
         name: 'Bosch Cooler',
         category: 'home',
         price: '300',
         date: {from: {year: 2015, month: 7, day: 6}, to: {year: 2016, month: 9, day: 26}},
         label: ''
     },
-];
+};
 
 export default class CalendarPage extends Component {
     render() {

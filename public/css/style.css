@@ -1,0 +1,176 @@
+body {
+  background: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+  body .page {
+    min-height: 900px;
+    padding-left: 15px;
+    padding-right: 15px; }
+
+body, * {
+  box-sizing: border-box; }
+
+.footer {
+  background-color: #fafafa;
+  height: 70px;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+  left: 0;
+  bottom: 0; }
+  .footer .wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 35px; }
+    .footer .wrapper ul {
+      text-align: center;
+      list-style-type: none;
+      padding: 0;
+      margin: 0; }
+      .footer .wrapper ul li {
+        display: inline-block;
+        padding: 0 10px; }
+        .footer .wrapper ul li a {
+          transition: .3s;
+          text-decoration: none;
+          color: #efeae1;
+          display: inline-block;
+          padding: 5px;
+          line-height: 23px;
+          color: #66595c; }
+          .footer .wrapper ul li a:hover {
+            transition: .3s; }
+          .footer .wrapper ul li a:hover {
+            color: #40a977; }
+          .footer .wrapper ul li a.active {
+            border-bottom: 5px #40a977 solid;
+            color: #40a977; }
+  .footer span {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    bottom: 5px;
+    color: #66595c; }
+
+.header {
+  background: #584B4F;
+  color: #fafafa;
+  position: relative;
+  top: 0;
+  height: 43px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  z-index: 100;
+  padding: 5px 0; }
+  .header .wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 16px; }
+    .header .wrapper .logo {
+      display: block; }
+    .header .wrapper nav {
+      display: inline-block;
+      position: relative;
+      list-style-type: none; }
+      .header .wrapper nav li {
+        display: inline-block;
+        padding-right: 15px;
+        height: 33px;
+        vertical-align: top; }
+        .header .wrapper nav li a {
+          transition: .3s;
+          text-decoration: none;
+          color: #efeae1;
+          display: inline-block;
+          padding: 5px;
+          line-height: 23px; }
+          .header .wrapper nav li a:hover {
+            transition: .3s; }
+          .header .wrapper nav li a:hover {
+            color: #40a977; }
+          .header .wrapper nav li a.active {
+            border-bottom: 5px #40a977 solid;
+            color: #40a977; }
+    .header .wrapper .right-block {
+      float: right;
+      line-height: 23px; }
+      .header .wrapper .right-block .gravatar {
+        height: 22px;
+        width: 22px;
+        vertical-align: -6px;
+        margin-right: 5px;
+        border-radius: 3px;
+        border: 0; }
+      .header .wrapper .right-block a {
+        transition: .3s;
+        text-decoration: none;
+        color: #efeae1;
+        display: inline-block;
+        padding: 5px;
+        line-height: 23px; }
+        .header .wrapper .right-block a:hover {
+          transition: .3s; }
+        .header .wrapper .right-block a:hover {
+          color: #40a977; }
+        .header .wrapper .right-block a.active {
+          border-bottom: 5px #40a977 solid;
+          color: #40a977; }
+
+.calendar .wish-list {
+  position: absolute;
+  width: 20%; }
+
+.calendar .year {
+  position: relative;
+  width: 80%;
+  margin-left: 20%; }
+  .calendar .year .month {
+    display: inline-block;
+    border: 1px solid #666;
+    width: 300px;
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    padding: 15px; }
+    .calendar .year .month .month-name {
+      display: block;
+      width: 100%;
+      text-align: center; }
+    .calendar .year .month .weekday-names {
+      display: block;
+      width: 100%; }
+      .calendar .year .month .weekday-names .weekday-name {
+        display: inline-block;
+        width: 14.2%; }
+    .calendar .year .month .day {
+      display: inline-block;
+      width: 14.2%;
+      position: relative; }
+    .calendar .year .month .current {
+      color: #fff;
+      font-weight: 600; }
+      .calendar .year .month .current:before {
+        content: "";
+        position: absolute;
+        background: #ff3725;
+        height: 20px;
+        width: 20px;
+        top: -2px;
+        left: -2px;
+        border-radius: 50%;
+        display: block;
+        z-index: -1; }
+    .calendar .year .month .regular {
+      color: #666; }
+
+/*# sourceMappingURL=style.css.map */

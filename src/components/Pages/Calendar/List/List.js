@@ -7,9 +7,10 @@ import Wish from './Wish'
 export default class List extends Component {
     render () {
         var rows = [];
-        this.props.wishesData.forEach(function(wish, i) {
-            rows.push(<Wish name={wish.name} key={i}/>);
-        });
+        for (let id in this.props.wishesData) {
+            let wish = this.props.wishesData[id];
+            rows.push(<Wish name={wish.name} wish-id={id} key={id}/>);
+        };
 
         return (
             <div className="wish-list">
