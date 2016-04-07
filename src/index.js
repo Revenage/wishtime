@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { browserHistory, Router, IndexRoute, Route, Link} from 'react-router'
-import HomePage from './components/Pages/HomePage';
+import HomePage from './components/Pages/HomePage/HomePage';
 import WishesPage from './components/Pages/WishesPage';
 import SkillsPage from './components/Pages/SkillsPage';
 import PrioritiesPage from './components/Pages/PrioritiesPage';
