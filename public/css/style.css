@@ -129,6 +129,8 @@ body, * {
 .calendar .wish-list {
   position: absolute;
   width: 20%; }
+  .calendar .wish-list .wish-name {
+    font-size: 16px; }
 
 .calendar .year {
   position: relative;
