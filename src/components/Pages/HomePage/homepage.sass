@@ -1,8 +1,9 @@
 .home-page
-  background: #000
   .bg-picture
-    height: 600px
+    height: 500px
     width: 100%
+    background-repeat: no-repeat
+    
     .name
       text-align: center
       margin: 0 auto
@@ -13,16 +14,28 @@
   .page-wrapper
     @include wrapper
     .section
+      padding: 40px
+
       .image-holder
-        width: 60%
+        height: 300px
+        width: 50%
         display: inline-block
         overflow: hidden
 
         .image
-          background: #000
-          height: 600px
-          width: 900px
+          padding: 10px
+          position: relative
+          height: 100%
+          width: 100%
           background-size: cover
+          background-position: center
+          @include hover-trans
+          &:hover
+            transform: scale(2)
+
       .text
-        width: 40%
+        padding: 10px
+        vertical-align: top
+        width: 50%
         display: inline-block
+        text-align: justify

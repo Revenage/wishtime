@@ -175,4 +175,46 @@ body, * {
     .calendar .year .month .regular {
       color: #666; }
 
+.home-page .bg-picture {
+  height: 500px;
+  width: 100%;
+  background-repeat: no-repeat; }
+  .home-page .bg-picture .name {
+    text-align: center;
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 6em;
+    padding: 20%; }
+
+.home-page .page-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px; }
+  .home-page .page-wrapper .section {
+    padding: 40px; }
+    .home-page .page-wrapper .section .image-holder {
+      height: 300px;
+      width: 50%;
+      display: inline-block;
+      overflow: hidden; }
+      .home-page .page-wrapper .section .image-holder .image {
+        padding: 10px;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: .3s; }
+        .home-page .page-wrapper .section .image-holder .image:hover {
+          transition: .3s; }
+        .home-page .page-wrapper .section .image-holder .image:hover {
+          transform: scale(2); }
+    .home-page .page-wrapper .section .text {
+      padding: 10px;
+      vertical-align: top;
+      width: 50%;
+      display: inline-block;
+      text-align: justify; }
+
 /*# sourceMappingURL=style.css.map */
