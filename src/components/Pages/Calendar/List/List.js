@@ -9,7 +9,7 @@ export default class List extends Component {
         var rows = [];
         for (let id in this.props.wishesData) {
             let wish = this.props.wishesData[id];
-            rows.push(<Wish name={wish.name} wish-id={id} key={id}/>);
+            rows.push(<Wish name={wish.name} color={wish.color} wish-id={id} key={id}/>);
         };
 
         return (

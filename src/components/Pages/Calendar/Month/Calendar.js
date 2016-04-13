@@ -12,7 +12,7 @@ class Calendar extends Component {
         return (
             <div className="calendar page">
                 <List wishesData={ this.props.wishes }/>
-                <MonthHolder/>
+                <MonthHolder data={ this.props.wishes }/>
             </div>
         )
     }

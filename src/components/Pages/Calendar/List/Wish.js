@@ -28,11 +28,11 @@ export default class Wish extends Component {
         let name = this.props.name || 'Error';
 
         let normal = {
-            backgroundColor: '#aaa',
+            backgroundColor: 'rgba(0,0,0,0)',
         }
 
         let hover = {
-            backgroundColor: '#333',
+            backgroundColor: this.props.color || normal,
         }
 
         let styleWish = normal;

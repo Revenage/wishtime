@@ -11,6 +11,7 @@ import WeekdayNames from './../MonthsAndDaysNames/WeekdayNames'
 export default class MonthCalendar extends Component {
     render () {
         let numOfMonth = this.props.monthNum;
+        let data = this.props.data;
 
         const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
         const weekDayName = ["Sun","Mon","Tues","Wed","Thu","Fri","Sat"];
@@ -70,20 +71,29 @@ export default class MonthCalendar extends Component {
             let text = '';
             let month = [];
 
-            for (let row = 1; row <= Math.ceil((lastDate + firstDay - 1) / 7); ++row) {
 
+            for (let row = 1; row <= Math.ceil((lastDate + firstDay - 1) / 7); ++row) {
+                let currentObject = {};
+                for (var id in data) {
+                    if (data.hasOwnProperty(id)) {
+                        if (data[id].date.from.day <= digit && data[id].date.to.day >= digit) {
+                            currentObject[id] = data[id];
+                        }
+                    }
+                }
                 let week = [];
                 for (let col = 1; col <= 7; ++col) {
                     if (digit > lastDate)
                         break;
                     if (curCell < firstDay) {
-                        week.push(<EmptyDay />);
+                        week.push(<EmptyDay data={ currentObject }/>);
                         curCell++
                     } else {
+
                         if (digit === date.currentDay && date.isCurrentMonth) { // current cell represent today's date
-                            week.push(<CurrentDay daynum={digit}/>);
+                            week.push(<CurrentDay data={ currentObject } daynum={digit}/>);
                         } else
-                            week.push(<RegularDay daynum={digit}/>);
+                            week.push(<RegularDay data={ currentObject } daynum={digit}/>);
                         digit++
                     }
                 }
