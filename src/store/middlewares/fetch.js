@@ -3,7 +3,7 @@
  */
 const middleware = store => next => action => {
 
-    if (action.type !== 'PROMISE') {
+    if (action.type !== 'FETCH') {
         return next(action);
     }
 

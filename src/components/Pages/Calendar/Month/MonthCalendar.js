@@ -100,8 +100,6 @@ export default class MonthCalendar extends Component {
                 month.push(week);
             }
 
-// close all basic table tags
-            /*return {__html: text};*/
             return month
         }
 

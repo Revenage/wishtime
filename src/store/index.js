@@ -1,20 +1,33 @@
-/**
- * Created by reven on 12.04.2016.
- */
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import createLogger from 'redux-logger';
-import promisesMiddleware from './middlewares/promises';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+import fetchMiddleware from './middlewares/fetch';
 import * as reducers from './reducers';
+// import Cookies from '../api/cookies';
 
-const logger = createLogger();
+import ACTIONS from './actions';
 
-const reducer = combineReducers(reducers);
+const appReducer = combineReducers(reducers);
+//const appReducer = createStore(usersPage => usersPage);
+const rootReducer = (state, action) => {
+    if (action.type === ACTIONS.user_logout) {
+        // Cookies.delete('_');
+        state = {
+            // currentUser: {
+            //     ...state.currentUser,
+            //     ...{token: !!0}
+            // }
+        };
+    }
+    return appReducer(state, action);
+};
 
+/* with Logger for actions */
+// const createStoreWithMiddleware =
+//     applyMiddleware(fetchMiddleware, logger)(createStore);
+
+/* without Logger */
 const createStoreWithMiddleware =
-    applyMiddleware(promisesMiddleware, logger)(createStore);
+    applyMiddleware(fetchMiddleware)(createStore);
 
-const store = createStoreWithMiddleware(reducer, {
-    counter: 0
-});
+const store = createStoreWithMiddleware(rootReducer, {});
 
 export default store;
